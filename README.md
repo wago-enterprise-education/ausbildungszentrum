@@ -1,0 +1,2 @@
+# ausbildungszentrum
+Das WAGO Ausbildungszentrum
