@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ausbildungszentrum</title>
+        <meta name="description" content="">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="static/style.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+            
+        <div class="navbar" id="navbar">
+            <span onclick="openNav()" id="opennav" style="margin-right: -4px; padding-left: 3px; cursor: pointer;">&#9776;</span>
+            <span onclick="closeNav()" id="closenav" style="margin-right: 1px; padding-left: 10px; cursor: pointer;"><img src="img/close_icon.svg" alt="X" width="25px;"></span>
+            <!-- <span><a href="https://www.wago.com/de/ausbildung-studium"><img src="img/wago_logo_jpg.jpg" alt="wago logo" style="width: 90px; height: auto; margin-bottom: -6px;"></a></span> -->
+            <span><a href="https://www.wago.com/de/ausbildung-studium"><img src="img/wago_logo_jpg.jpg" alt="wago logo" style="width: 90px; height: auto; margin-bottom: -6px; padding-top: 10px;"></a></span>
+        </div>
+        
+        <div class="content" id="content">
+            <img id="map-img" src="img/map_alpha.png" alt="Map">
+        </div>
+        
+        <div class="sidebar" id="sidebar">
+
+            <h3 onclick="window.location.assign('https://my.mpskin.com/de/tour/4fy5j2fqtf')">360° Rundgang</h3>
+            <h3>Kaufmännische Ausbildungsberufe</h3>
+            <a href="javascript:void(0)" onclick="zoom_to('IKFM')">Industriekaufmann (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('INFSYS')">Fachinformatiker Systemintegration (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('INFAPP')">Fachinformatiker Anwendungsentwicklung (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('MGDP')">Mediengestalter Digital und Print (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('GIM')">Gestalter für immersive Medien (m/w/d)</a>
+            <br>
+            
+            <h3>Technische Ausbildungsberufe</h3>
+            <a href="javascript:void(0)" onclick="zoom_to('WZM')">Werkzeugmechaniker (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('WZM')">Industriemechaniker (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('WZM')">Kunststoff- und Kautschuktechnologie (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('WZM')">Maschinen- und Anlagenführer (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('TPD')">Technischer Produktdesigner (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('ELK')">Mechatroniker (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('ELK')">Elektroniker für Geräte und Systeme (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('ELK')">Elektroniker für Betriebstechnik (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('ELK')">Elektroniker für Automatisierungstechnik (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('FL')">Fachlagerist (m/w/d)</a>
+            <br>
+
+            <h3>Praxisintegriertes Studium</h3>
+            <a href="javascript:void(0)" onclick="zoom_to('WING')">Wirtschaftsingenieurwesen (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('ET')">Elektrotechnik (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('MB')">Maschinenbau (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('INF')">Informatik (m/w/d)</a>
+            <a href="javascript:void(0)" onclick="zoom_to('WINF')">Wirtschaftsinformatik (m/w/d)</a>
+            <!-- <a href="javascript:void(0)" onclick="zoom_to('')">ITSE Master (m/w/d)</a> -->
+
+        </div>        
+
+            <span class="zoom_ctrl" id="ctrl_plus" onclick="zoom_in()">+</span>
+            <br>
+            <span class="zoom_ctrl" id="ctrl_minus" onclick="zoom_out()">-</span>
+        
+        
+        <script src="static/main.js"></script>
+            
+    </body>
+</html>

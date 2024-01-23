@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: white;
+    overflow: hidden;
+    position: fixed;
+    /* position: sticky; */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 50px;
+}
+
+
+.content {
+    /* padding: 16px; */
+    margin-top: 50px; /* Platz für die feste Navbar */
+    transition: margin-left 0.5s, transform 0.5s ease;
+    background-color: whitesmoke;
+    overflow: auto;
+    width: auto;
+    height: auto;
+
+
+}
+
+#map-img {
+    transition: margin-left 0.5s, transform 0.5s ease;
+    /* height: calc(100vh - 80px); */
+    width: 100%;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    /* position: fixed; */
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #eff0f1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.sidebar h3 {
+    padding-left: 10px;
+}
+
+#threesixtydegree {
+    padding-left: 0px 0px 0px 10px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #6EC800;
+}
+
+.sidebar .closebtn {
+    /*position: absolute;*/
+    top: 0;
+    right: 25px;
+    /*margin-left: 50px;*/
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 16px;}
+}
+
+
+#opennav {
+    background-color: white;
+    font-size: 30px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.navbar a {
+    padding-left: 10px;
+}
+
+
+
+.zoom_ctrl {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 60px;
+}
+
+#ctrl_plus {
+    color: #1f2837;
+    padding-right: 12px;
+    /* padding-bottom: 40px; */
+    margin-bottom: 40px;
+    /* border: 1px solid black;
+    border-radius: 50%; */
+}
+
+#ctrl_minus {
+    color: #1f2837;
+    padding-right: 20px;
+    /* border: 1px solid black; */
+}
