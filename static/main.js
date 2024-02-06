@@ -1,6 +1,6 @@
 function openNav() {
     document.getElementById("sidebar").style.width = "100%";
-    document.getElementById("content").style.marginLeft = "100%";
+    document.getElementById("map-div").style.marginLeft = "100%";
     window.scrollTo(0, 0);
     $('#opennav').hide();
     $('#closenav').show();
@@ -9,7 +9,7 @@ function openNav() {
 
 function closeNav() {
     document.getElementById("sidebar").style.width = "0";
-    document.getElementById("content").style.marginLeft = "0";
+    document.getElementById("map-div").style.marginLeft = "0";
     $('#opennav').show();
     $('#closenav').hide();
     $('#map-img').show();
@@ -76,24 +76,68 @@ function zoom_to(topic) {
 
 
 function zoom_in() {
-    // document.getElementById("map-img").style.transform = 'scale(1.5)';
-    document.getElementById('content').style.width = "200%";
-
-    // var image = $('#map-img');
-    // image.animate({
-    //     width: image.width() * 2,
-    //     height: image.height() * 2
-    // }, 200);
+    document.getElementById('map-div').style.width = "200%";
 }
 
 
 function zoom_out() {
-    // document.getElementById("map-img").style.transform = 'scale(1)';
-    document.getElementById('content').style.width = "100%";
-
-    // var image = $('#map-img');
-    // image.animate({
-    //     width: image.width() / 2,
-    //     height: image.height() / 2
-    // }, 200);
+    document.getElementById('map-div').style.width = "100%";
 }
+
+
+// PINCH-ZOOMING METHODS
+
+var pinchZoomElement = document.getElementById('map-div');
+var scaling = false;
+var initialDist;
+var currentScale = 1;
+
+function pinchStart(e) {
+    initialDist = getDistance(e.touches[0], e.touches[1]);
+}
+
+function pinchMove(e) {
+    var currentDist = getDistance(e.touches[0], e.touches[1]);
+    var scale = currentDist / initialDist;
+
+    // limit Zoom to 1 - 3
+    scale = Math.min(Math.max(scale, 1), 3);
+
+    pinchZoomElement.style.transform = 'scale(' + scale + ')';
+    currentScale = scale;
+    console.log('current Zoom:', currentScale.toFixed(2));
+}
+
+function pinchEnd() {
+    //pinchZoomElement.style.transform = 'scale(1)';
+    //currentScale = 1;
+    console.log("pinch ended.");
+}
+
+function getDistance(touch1, touch2) {
+    return Math.hypot(
+        touch1.pageX - touch2.pageX,
+        touch1.pageY - touch2.pageY
+    );
+}
+
+pinchZoomElement.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 2) {
+        scaling = true;
+        pinchStart(e);
+    }
+});
+
+pinchZoomElement.addEventListener('touchmove', function (e) {
+    if (scaling) {
+        pinchMove(e);
+    }
+});
+
+pinchZoomElement.addEventListener('touchend', function (e) {
+    if (scaling) {
+        pinchEnd(e);
+        scaling = false;
+    }
+});
+

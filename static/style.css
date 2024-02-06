@@ -27,6 +27,15 @@ body {
 
 }
 
+#map-div {
+    width: 100%;
+    height: auto;
+    background-color: red;
+    overflow: hidden;
+    touch-action: none;
+    transition: transform 0.2s ease-out;
+}
+
 #map-img {
     transition: margin-left 0.5s, transform 0.5s ease;
     /* height: calc(100vh - 80px); */

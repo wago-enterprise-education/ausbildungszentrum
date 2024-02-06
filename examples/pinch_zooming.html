@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinch-Zoom Detection</title>
+    <style>
+        #pinchZoomElement {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            overflow: hidden; /* Begrenzt den sichtbaren Bereich auf die Größe des Elements */
+            touch-action: none; /* Verhindert standardmäßiges Zoomen des Browsers bei Berührung */
+            transition: transform 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<div id="pinchZoomElement"></div>
+
+<!-- This example does work! -->
+
+<script>
+    var pinchZoomElement = document.getElementById('pinchZoomElement');
+    var scaling = false;
+    var initialDist;
+    var currentScale = 1; // Aktuelle Zoomstufe
+
+    function pinchStart(e) {
+        initialDist = getDistance(e.touches[0], e.touches[1]);
+    }
+
+    function pinchMove(e) {
+        var currentDist = getDistance(e.touches[0], e.touches[1]);
+        var scale = currentDist / initialDist;
+
+        // Begrenze den Zoom auf einen bestimmten Bereich (z.B. 0.5 bis 3)
+        scale = Math.min(Math.max(scale, 0.5), 3);
+
+        pinchZoomElement.style.transform = 'scale(' + scale + ')';
+        currentScale = scale;
+        console.log('Aktueller Zoom:', currentScale.toFixed(2));
+    }
+
+    function pinchEnd() {
+        //pinchZoomElement.style.transform = 'scale(1)';
+        //currentScale = 1;
+        console.log("pinch ended.");
+    }
+
+    function getDistance(touch1, touch2) {
+        return Math.hypot(
+            touch1.pageX - touch2.pageX,
+            touch1.pageY - touch2.pageY
+        );
+    }
+
+    pinchZoomElement.addEventListener('touchstart', function (e) {
+        if (e.touches.length === 2) {
+            scaling = true;
+            pinchStart(e);
+        }
+    });
+
+    pinchZoomElement.addEventListener('touchmove', function (e) {
+        if (scaling) {
+            pinchMove(e);
+        }
+    });
+
+    pinchZoomElement.addEventListener('touchend', function (e) {
+        if (scaling) {
+            pinchEnd(e);
+            scaling = false;
+        }
+    });
+</script>
+
+</body>
+</html>
