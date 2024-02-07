@@ -91,6 +91,8 @@ var pinchZoomElement = document.getElementById('map-div');
 var scaling = false;
 var initialDist;
 var currentScale = 1;
+var mid_x = 0; // detect the middle between the finger touches...
+var mid_y = 0; // ...to zoom at a certain position
 
 function pinchStart(e) {
     initialDist = getDistance(e.touches[0], e.touches[1]);
@@ -100,21 +102,17 @@ function pinchMove(e) {
     var currentDist = getDistance(e.touches[0], e.touches[1]);
     var scale = currentDist / initialDist;
 
-    // limit Zoom to 1 - 3
-    scale = Math.min(Math.max(scale, 1), 3);
+    currentScale = Math.min(Math.max(scale, 1), 3); // limit Zoom to 1 - 3
 
-    pinchZoomElement.style.transform = 'scale(' + scale + ')';
-    currentScale = scale;
+    pinchZoomElement.style.transform = 'translate(-50%, -50%) scale(' + currentScale + ')';
+    pinchZoomElement.style.left = mid_x + 'px';
+    pinchZoomElement.style.right = mid_y + 'px';
     console.log('current Zoom:', currentScale.toFixed(2));
 }
 
-function pinchEnd() {
-    //pinchZoomElement.style.transform = 'scale(1)';
-    //currentScale = 1;
-    console.log("pinch ended.");
-}
-
 function getDistance(touch1, touch2) {
+    mid_x = (touch1.pageX + touch2.pageX) * 0.5;
+    mid_y = (touch1.pageY + touch2.pageY) * 0.5;
     return Math.hypot(
         touch1.pageX - touch2.pageX,
         touch1.pageY - touch2.pageY
@@ -136,7 +134,6 @@ pinchZoomElement.addEventListener('touchmove', function (e) {
 
 pinchZoomElement.addEventListener('touchend', function (e) {
     if (scaling) {
-        pinchEnd(e);
         scaling = false;
     }
 });

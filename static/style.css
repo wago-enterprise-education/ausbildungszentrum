@@ -16,23 +16,20 @@ body {
 
 
 .content {
-    /* padding: 16px; */
     margin-top: 50px; /* Platz für die feste Navbar */
     transition: margin-left 0.5s, transform 0.5s ease;
     background-color: whitesmoke;
     overflow: auto;
-    width: auto;
+    width: 100%;
     height: auto;
-
-
 }
 
 #map-div {
     width: 100%;
     height: auto;
-    background-color: red;
+    background-color: #eff0f1;
     overflow: hidden;
-    touch-action: none;
+    /* touch-action: none; */
     transition: transform 0.2s ease-out;
 }
 
@@ -40,6 +37,14 @@ body {
     transition: margin-left 0.5s, transform 0.5s ease;
     /* height: calc(100vh - 80px); */
     width: 100%;
+}
+
+#tda {
+    font-family: Aktiv Grotesk, Arial, OpenSans, sans-serif; 
+    float: right;
+    font-size: larger;
+    padding-top: 14px;
+    padding-right: 10px;
 }
 
 
@@ -125,4 +130,9 @@ body {
     color: #1f2837;
     padding-right: 20px;
     /* border: 1px solid black; */
+}
+
+
+#ikfm {
+    color: #FFF696;
 }
