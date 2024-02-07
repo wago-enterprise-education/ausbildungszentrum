@@ -16,7 +16,7 @@ body {
 
 
 .content {
-    margin-top: 50px; /* Platz für die feste Navbar */
+    margin-top: 50px; /* Fixed Navbar */
     transition: margin-left 0.5s, transform 0.5s ease;
     background-color: whitesmoke;
     overflow: auto;
@@ -24,11 +24,17 @@ body {
     height: auto;
 }
 
+body {
+    overflow: hidden;
+    background-color: #eff0f1;
+}
+
 #map-div {
     width: 100%;
     height: auto;
     background-color: #eff0f1;
     overflow: hidden;
+    padding-top: 10px;
     /* touch-action: none; */
     transition: transform 0.2s ease-out;
 }

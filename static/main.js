@@ -5,6 +5,7 @@ function openNav() {
     $('#opennav').hide();
     $('#closenav').show();
     $('#map-img').hide();
+    document.body.style.overflow = "auto";
 }
 
 function closeNav() {
@@ -14,6 +15,7 @@ function closeNav() {
     $('#closenav').hide();
     $('#map-img').show();
     window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
 }
 
 $(document).ready(function() {
@@ -104,9 +106,9 @@ function pinchMove(e) {
 
     currentScale = Math.min(Math.max(scale, 1), 3); // limit Zoom to 1 - 3
 
-    pinchZoomElement.style.transform = 'translate(-50%, -50%) scale(' + currentScale + ')';
-    pinchZoomElement.style.left = mid_x + 'px';
-    pinchZoomElement.style.right = mid_y + 'px';
+    pinchZoomElement.style.transform = 'scale(' + currentScale + ')';
+    //pinchZoomElement.style.left = mid_x + 'px';
+    //pinchZoomElement.style.right = mid_y + 'px';
     console.log('current Zoom:', currentScale.toFixed(2));
 }
 
