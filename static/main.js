@@ -44,7 +44,7 @@ function closeNav() {
     if (currentScale > 1) {
         document.body.style.overflow = "auto";
     } else {
-        document.body.style.overflow = "hidden";
+        //document.body.style.overflow = "hidden";
     }
 }
 
@@ -137,7 +137,7 @@ function zoom_out() {
     document.getElementById('map-div').style.width = "100%";
     currentScale = 1;
     window.scrollTo(0, 0);
-    document.body.style.overflow = "hidden";
+    //document.body.style.overflow = "hidden";
 }
 
 
@@ -164,7 +164,7 @@ function pinchMove(e) {
     
     document.getElementById('map-div').style.width = "" + currentScale * 100 + "%";
 
-    pinchZoomElement.style.transform = 'scale(' + currentScale + ')';
+    //pinchZoomElement.style.transform = 'scale(' + currentScale + ')';
     // TODO: translate to midx and midy?
     //pinchZoomElement.style.left = mid_x + 'px';
     //pinchZoomElement.style.right = mid_y + 'px';
@@ -181,7 +181,7 @@ function pinchEnd(e) {
         lastScale = currentScale;
         if (lastScale == 1) {
             window.scrollTo(0, 0);
-            document.body.style.overflow = "hidden";
+            //document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "auto";
         }
