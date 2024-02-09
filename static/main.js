@@ -142,7 +142,7 @@ function zoom_out() {
 
 
 // PINCH-ZOOMING METHODS
-
+// Maybe use https://github.com/manuelstofer/pinchzoom for the zoom?
 /**
  * 
  */
