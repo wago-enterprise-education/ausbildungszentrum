@@ -9,9 +9,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Ausbildungszentrum</title>
         <meta name="description" content="">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="static/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -19,28 +19,28 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
             
+        <!-- Implement simple navbar, try to adapt some parts of the WAGO CI design -->
         <div class="navbar" id="navbar">
             <span onclick="openNav()" id="opennav" style="margin-right: -4px; padding-left: 3px; cursor: pointer;">&#9776;</span>
             <span onclick="closeNav()" id="closenav" style="margin-right: 1px; padding-left: 10px; cursor: pointer;"><img src="img/close_icon.svg" alt="X" width="25px;"></span>
-            <!-- <span><a href="https://www.wago.com/de/ausbildung-studium"><img src="img/wago_logo_jpg.jpg" alt="wago logo" style="width: 90px; height: auto; margin-bottom: -6px;"></a></span> -->
             <span><a href="https://www.wago.com/de/ausbildung-studium"><img src="img/wago_logo_jpg.jpg" alt="wago logo" style="width: 90px; height: auto; margin-bottom: -6px; padding-top: 10px;"></a></span>
             <span id="tda">Tag der Ausbildung</span>
         </div>
         
+        <!-- main content: the map -->
         <div class="content" id="map-div">
-            <!-- <img id="map-img" src="img/map_alpha.png" alt="Map"> -->
             <img id="map-img" src="img/mapv2.svg" alt="Map">
         </div>
         
+        <!-- Implement sidebar for additional information -->
         <div class="sidebar" id="sidebar">
-
             <h3 onclick="window.location.assign('https://my.mpskin.com/de/tour/4fy5j2fqtf')">360° Rundgang</h3>
             <h3>Kaufmännische Ausbildungsberufe</h3>
-            <a href="javascript:void(0)" onclick="zoom_to('IKFM')">Industriekaufmann (m/w/d) <span id="ikfm">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('INFSYS')">Fachinformatiker Systemintegration (m/w/d) <span id="ikfm">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('INFAPP')">Fachinformatiker Anwendungsentwicklung (m/w/d) <span id="ikfm">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('MGDP')">Mediengestalter Digital und Print (m/w/d) <span id="ikfm">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('GIM')">Gestalter für immersive Medien (m/w/d) <span id="ikfm">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('IKFM')">Industriekaufmann (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('INFSYS')">Fachinformatiker Systemintegration (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('INFAPP')">Fachinformatiker Anwendungsentwicklung (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('MGDP')">Mediengestalter Digital und Print (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('GIM')">Gestalter für immersive Medien (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
             <br>
             
             <h3>Technische Ausbildungsberufe</h3>
@@ -48,7 +48,7 @@
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Industriemechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Kunststoff- und Kautschuktechnologie (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Maschinen- und Anlagenführer (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('TPD')">Technischer Produktdesigner (m/w/d) <span id="ikfm">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('TPD')">Technischer Produktdesigner (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('ELK')">Mechatroniker (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('ELK')">Elektroniker für Geräte und Systeme (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('ELK')">Elektroniker für Betriebstechnik (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
@@ -66,12 +66,11 @@
 
         </div>        
 
-            <!-- <span class="zoom_ctrl" id="ctrl_plus" onclick="zoom_in()">+</span>
-            <br>
-            <span class="zoom_ctrl" id="ctrl_minus" onclick="zoom_out()">-</span> -->
+        <!-- optional + and - for desktop environments only -->
+        <span class="zoom_ctrl" id="ctrl_plus" onclick="zoom_in()">+</span>
+        <br>
+        <span class="zoom_ctrl" id="ctrl_minus" onclick="zoom_out()">-</span>
         
-        
-        <script src="static/main.js"></script>
-            
+        <script src="static/main.js"></script>    
     </body>
 </html>

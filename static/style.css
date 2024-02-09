@@ -1,7 +1,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: #eff0f1;
 }
+
 
 .navbar {
     background-color: white;
@@ -24,10 +27,6 @@ body {
     height: auto;
 }
 
-body {
-    overflow: hidden;
-    background-color: #eff0f1;
-}
 
 #map-div {
     width: 100%;
@@ -39,11 +38,12 @@ body {
     transition: transform 0.2s ease-out;
 }
 
+
 #map-img {
     transition: margin-left 0.5s, transform 0.5s ease;
-    /* height: calc(100vh - 80px); */
     width: 100%;
 }
+
 
 #tda {
     font-family: Aktiv Grotesk, Arial, OpenSans, sans-serif; 
@@ -57,7 +57,6 @@ body {
 .sidebar {
     height: 100%;
     width: 0;
-    /* position: fixed; */
     z-index: 1;
     top: 0;
     left: 0;
@@ -69,13 +68,16 @@ body {
     margin-bottom: -10px;
 }
 
+
 .sidebar h3 {
     padding-left: 10px;
 }
 
+
 #threesixtydegree {
     padding-left: 0px 0px 0px 10px;
 }
+
 
 .sidebar a {
     padding: 8px 8px 8px 32px;
@@ -86,16 +88,17 @@ body {
     transition: 0.3s;
 }
 
+
 .sidebar a:hover {
     color: #6EC800;
 }
 
+
 .sidebar .closebtn {
-    /*position: absolute;*/
     top: 0;
     right: 25px;
-    /*margin-left: 50px;*/
 }
+
 
 @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
@@ -110,10 +113,10 @@ body {
     margin-left: 10px;
 }
 
+
 .navbar a {
     padding-left: 10px;
 }
-
 
 
 .zoom_ctrl {
@@ -123,22 +126,15 @@ body {
     font-size: 60px;
 }
 
+
 #ctrl_plus {
     color: #1f2837;
     padding-right: 12px;
-    /* padding-bottom: 40px; */
     margin-bottom: 40px;
-    /* border: 1px solid black;
-    border-radius: 50%; */
 }
+
 
 #ctrl_minus {
     color: #1f2837;
     padding-right: 20px;
-    /* border: 1px solid black; */
-}
-
-
-#ikfm {
-    color: #FFF696;
 }
