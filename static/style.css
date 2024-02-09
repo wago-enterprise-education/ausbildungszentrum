@@ -20,7 +20,7 @@ body {
 
 .content {
     margin-top: 50px; /* Fixed Navbar */
-    transition: margin-left 0.5s, transform 0.5s ease;
+    transition: margin-left 0.3s, transform 0.3s ease;
     background-color: whitesmoke;
     overflow: auto;
     width: 100%;
@@ -35,12 +35,12 @@ body {
     overflow: hidden;
     padding-top: 10px;
     /* touch-action: none; */
-    transition: transform 0.2s ease-out;
+    transition: margin-right 0.3s, transform 0.3s ease;
 }
 
 
 #map-img {
-    transition: margin-left 0.5s, transform 0.5s ease;
+    transition: margin-left 0.3s, transform 0.3s ease;
     width: 100%;
 }
 
@@ -63,7 +63,7 @@ body {
     background-color: #eff0f1;
     overflow-x: hidden;
     overflow-y: auto;
-    transition: 0.5s;
+    transition: 0.3s;
     margin-top: -10px;
     margin-bottom: -10px;
 }
