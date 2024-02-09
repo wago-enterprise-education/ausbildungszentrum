@@ -163,7 +163,14 @@ function pinchMove(e) {
     // pinchZoomElement.style.transform = 'translate(-50%, -50%) scale(' + currentScale + ')';
     
     document.getElementById('map-div').style.width = "" + currentScale * 100 + "%";
-    window.scrollTo(mid_x, mid_y);
+    var deltaX = pinchZoomElement.offsetLeft - mid_x;
+    var deltaY = pinchZoomElement.offsetTop - mid_y;
+
+    window.scrollBy({
+        left: deltaX * scale,
+        top: deltaY * scale,
+        behavior: 'smooth'  // Optional: Fügt eine Scrollanimation hinzu
+    });
 
     //console.log('current Zoom:', currentScale.toFixed(2));
     e.preventDefault(); // no other zooming allowed
