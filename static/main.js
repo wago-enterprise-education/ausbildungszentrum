@@ -158,18 +158,15 @@ function pinchMove(e) {
     var scale = currentDist / initialDist;
     currentScale = lastScale * scale;
 
-    currentScale = Math.min(Math.max(scale, 1), 3); // limit Zoom to 1 - 3
+    currentScale = Math.min(Math.max(currentScale, 1), 3); // limit Zoom to 1 - 3
 
     // pinchZoomElement.style.transform = 'translate(-50%, -50%) scale(' + currentScale + ')';
     
     document.getElementById('map-div').style.width = "" + currentScale * 100 + "%";
+    window.scrollTo(mid_x, mid_y);
 
-    //pinchZoomElement.style.transform = 'scale(' + currentScale + ')';
-    // TODO: translate to midx and midy?
-    //pinchZoomElement.style.left = mid_x + 'px';
-    //pinchZoomElement.style.right = mid_y + 'px';
-    console.log('current Zoom:', currentScale.toFixed(2));
-    e.preventDefault();
+    //console.log('current Zoom:', currentScale.toFixed(2));
+    e.preventDefault(); // no other zooming allowed
 }
 
 
