@@ -37,6 +37,7 @@ function openNav() {
     $('#opennav').hide();
     $('#closenav').show();
     $('#map-img').hide();
+    $('#gender-info').hide();
     document.body.style.overflow = "auto";
 }
 
@@ -51,6 +52,7 @@ function closeNav() {
     $('#opennav').show();
     $('#closenav').hide();
     $('#map-img').show();
+    $('#gender-info').show();
     window.scrollTo(0, 0);
     if (currentScale > 1) {
         document.body.style.overflow = "auto";
@@ -69,47 +71,46 @@ function zoom_to(topic) {
     zoom_in();
     switch (topic) {
         case 'IKFM':
-            window.scrollTo(0, 200);
+            window.scrollTo(0, 180);
             break;
         case 'INFSYS':
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 230);
             break;
         case 'INFAPP':
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 230);
             break;
         case 'MGDP':
-            window.scrollTo(0, 220);
+            window.scrollTo(0, 180);
             break;
         case 'GIM':
-            window.scrollTo(0, 220);
+            window.scrollTo(0, 180);
             break;
         case 'WZM':
-            window.scrollTo(250, 300);
+            window.scrollTo(280, 300);
             break;
         case 'TPD':
-            window.scrollTo(0, 220);
+            window.scrollTo(335, 100);
             break;
         case 'ELK':
             window.scrollTo(100, 250);
             break;
         case 'FL':
-            window.scrollTo(250, 300);
+            window.scrollTo(280, 300);
             break;
         case 'WING':
-            window.scrollTo(0, 180);
+            window.scrollTo(0, 200);
             break;
         case 'ET':
-            window.scrollTo(300, 100);
+            window.scrollTo(0, 200);
             break;
         case 'MB':
-            window.scrollTo(0, 250);
+            window.scrollTo(0, 200);
             break;
         case 'INF':
-            window.scrollTo(200, 0);
+            window.scrollTo(0, 200);
             break;
         case 'WINF':
-            zoom_in();
-            window.scrollTo(200,0);
+            window.scrollTo(0, 200);
         default:
             console.log("Not found.");
             break;
@@ -193,7 +194,6 @@ function pinchEnd(e) {
         } else {
             document.body.style.overflow = "auto";
         }
-
 }
 
 

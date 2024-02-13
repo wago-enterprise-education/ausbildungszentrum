@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    overflow: auto;
     background-color: #eff0f1;
 }
 
@@ -32,7 +32,7 @@ body {
     width: 100%;
     height: auto;
     background-color: #eff0f1;
-    overflow: hidden;
+    overflow: auto;
     padding-top: 10px;
     /* touch-action: none; */
     transition: margin-right 0.3s, transform 0.3s ease;
@@ -51,6 +51,11 @@ body {
     font-size: larger;
     padding-top: 14px;
     padding-right: 10px;
+}
+
+
+#gender-info {
+    padding-left: 5px;
 }
 
 

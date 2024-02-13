@@ -29,9 +29,11 @@
         
         <!-- main content: the map -->
         <div class="content" id="map-div">
-            <img id="map-img" src="img/mapv2.svg" alt="Map">
+            <img id="map-img" src="img/map.svg" alt="Map">
         </div>
         
+        <div id="gender-info"><br><br>*Gemeint ist m/w/d. Die gewählte Schreibweise erfolgt lediglich aus Darstellungsgründen.</div>
+
         <!-- Implement sidebar for additional information -->
         <div class="sidebar" id="sidebar">
             <h3 onclick="window.location.assign('https://my.mpskin.com/de/tour/4fy5j2fqtf')">360° Rundgang</h3>
@@ -46,6 +48,7 @@
             <h3>Technische Ausbildungsberufe</h3>
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Werkzeugmechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Industriemechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
+            <a href="javascript:void(0)" onclick="zoom_to('ELK')">Industrieelektriker  (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Kunststoff- und Kautschuktechnologie (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('WZM')">Maschinen- und Anlagenführer (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
             <a href="javascript:void(0)" onclick="zoom_to('TPD')">Technischer Produktdesigner (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
@@ -64,7 +67,9 @@
             <a href="javascript:void(0)" onclick="zoom_to('WINF')">Wirtschaftsinformatik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
             <!-- <a href="javascript:void(0)" onclick="zoom_to('ITSE')">ITSE Master (m/w/d)</a> -->
 
-        </div>        
+        </div> 
+        
+        
 
         <!-- optional + and - for desktop environments only -->
         <span class="zoom_ctrl" id="ctrl_plus" onclick="zoom_in()">+</span>
