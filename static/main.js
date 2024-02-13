@@ -6,13 +6,24 @@
 
 
 // Variables
-var pinchZoomElement = document.getElementById('map-div');
-var scaling = false;
-var initialDist;
-var currentScale = 1;
-var mid_x = 0; // detect the middle between the finger touches...
-var mid_y = 0; // ...to zoom at a certain position
+var pinchZoomElement = document.getElementById('map-div'); // essentially the map itself
+var scaling = false; // Bool for event handling
+var initialDist; // Initial dist of the pinch fingers
+var currentScale = 1; // current zoom factor
+// var mid_x = 0; // detect the middle between the finger touches...
+// var mid_y = 0; // ...to zoom at a certain position
 var lastScale = 1; // make the difference to the last step visible
+
+
+$(document).ready(function() {
+    $('#closenav').hide();
+    window.scrollTo(0,0);
+    if(screen.width < 1000) {
+        $('#ctrl_plus').hide();
+        $('#ctrl_minus').hide();
+        console.log("Removed + and - (only for desktop environments).");
+    }
+});
 
 
 /**
@@ -47,17 +58,6 @@ function closeNav() {
         //document.body.style.overflow = "hidden";
     }
 }
-
-
-$(document).ready(function() {
-    $('#closenav').hide();
-    window.scrollTo(0,0);
-    if(screen.width < 1000) {
-        $('#ctrl_plus').hide();
-        $('#ctrl_minus').hide();
-        console.log("Removed + and - (only for desktop environments).");
-    }
-});
 
 
 /**
@@ -126,6 +126,7 @@ function zoom_to(topic) {
 function zoom_in() {
     document.getElementById('map-div').style.width = "200%";
     currentScale = 2;
+    lastScale = currentScale;
     document.body.style.overflow = "auto";
 }
 
@@ -136,22 +137,24 @@ function zoom_in() {
 function zoom_out() {
     document.getElementById('map-div').style.width = "100%";
     currentScale = 1;
+    lastScale = currentScale;
     window.scrollTo(0, 0);
     //document.body.style.overflow = "hidden";
 }
 
 
 // PINCH-ZOOMING METHODS
-// Maybe use https://github.com/manuelstofer/pinchzoom for the zoom?
+// TODO: Maybe use https://github.com/manuelstofer/pinchzoom for the zoom?
 /**
- * 
+ * Start pinch zooming
  */
 function pinchStart(e) {
     initialDist = getDistance(e.touches[0], e.touches[1]);
 }
 
+
 /**
- * 
+ * Move and zoom the window to a certain position
  */
 function pinchMove(e) {
     var currentDist = getDistance(e.touches[0], e.touches[1]);
@@ -163,14 +166,14 @@ function pinchMove(e) {
     // pinchZoomElement.style.transform = 'translate(-50%, -50%) scale(' + currentScale + ')';
     
     document.getElementById('map-div').style.width = "" + currentScale * 100 + "%";
-    var deltaX = pinchZoomElement.offsetLeft - mid_x;
-    var deltaY = pinchZoomElement.offsetTop - mid_y;
+    // var deltaX = pinchZoomElement.offsetLeft - mid_x;
+    // var deltaY = pinchZoomElement.offsetTop - mid_y;
 
-    window.scrollBy({
-        left: deltaX * scale,
-        top: deltaY * scale,
-        behavior: 'smooth'  // Optional: Fügt eine Scrollanimation hinzu
-    });
+    // window.scrollBy({
+    //     left: deltaX * scale,
+    //     top: deltaY * scale,
+    //     behavior: 'smooth'
+    // });
 
     //console.log('current Zoom:', currentScale.toFixed(2));
     e.preventDefault(); // no other zooming allowed
@@ -178,6 +181,7 @@ function pinchMove(e) {
 
 
 /**
+ * End of pinch zoom
  * Save current scale for the next scaling
  * @param {*} e 
  */
