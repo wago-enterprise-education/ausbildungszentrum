@@ -5,13 +5,16 @@ Lageplan für den Tag der Ausbildung (TdA)
 
 ## Offene TODOs
 
-- [ ] Verbesserung des Pinch-Zooms
-- [ ] Anpassen der Animationen
 - [ ] Update der Karte auf den finalen Stand
     - [ ] ungenutzte/nicht zugängliche Räume ausgrauen
     - [ ] Berufsfelder ergänzen
     - [ ] Zusätzliche Attraktionen (z. B. Gewinnspiel) ergänzen
 - [ ] Anpassen der Koordinaten für die jeweiligen Berufsgruppen
+- [ ] Farbige Schilder im Gebäude zur besseren Orientierung aufstellen (in den Farben der unterschiedlichen Bereiche)
+
+*Optional*
+- [ ] Verbesserung des Pinch-Zooms
+- [ ] Anpassen der Animationen
 - [ ] Ggf. Legende mit Erklärung der Farben unten auf der Website
 
 
