@@ -67,55 +67,30 @@ function closeNav() {
  * @param {String} topic abbrev. for the subject
  */
 function zoom_to(topic) {
+
+    var rooms = {};
+
+    // room coordinates for zoom 300 %
+    rooms["office"] = [0, 60];
+    rooms["project"] = [0, 180];
+    rooms["it_schulung"] = [0, 300];
+    rooms["workshop_2_3_4"] = [0, 400];
+    rooms["e_ausbildung"] = [200, 400];
+    rooms["meetings"] = [150, 150];
+    rooms["studenten_1"] = [370, 0];
+    rooms["studenten_2"] = [550, 0];
+    rooms["labore"] = [450, 150];
+    rooms["sonderprojekte"] = [650, 150];
+    rooms["werkstatt"] = [500, 500];
+
     closeNav();
     zoom_in();
-    switch (topic) {
-        case 'IKFM':
-            window.scrollTo(0, 180);
-            break;
-        case 'INFSYS':
-            window.scrollTo(0, 230);
-            break;
-        case 'INFAPP':
-            window.scrollTo(0, 230);
-            break;
-        case 'MGDP':
-            window.scrollTo(0, 180);
-            break;
-        case 'GIM':
-            window.scrollTo(0, 180);
-            break;
-        case 'WZM':
-            window.scrollTo(280, 300);
-            break;
-        case 'TPD':
-            window.scrollTo(335, 100);
-            break;
-        case 'ELK':
-            window.scrollTo(100, 250);
-            break;
-        case 'FL':
-            window.scrollTo(280, 300);
-            break;
-        case 'WING':
-            window.scrollTo(0, 200);
-            break;
-        case 'ET':
-            window.scrollTo(0, 200);
-            break;
-        case 'MB':
-            window.scrollTo(0, 200);
-            break;
-        case 'INF':
-            window.scrollTo(0, 200);
-            break;
-        case 'WINF':
-            window.scrollTo(0, 200);
-        default:
-            console.log("Not found.");
-            break;
-        }
-        document.body.style.overflow = "auto";
+    window.scrollTo({
+        top: rooms[topic][1],
+        left: rooms[topic][0],
+        behavior: "smooth",
+    });
+    document.body.style.overflow = "auto";
     // document.getElementById("map-img").style.transform = 'scale(2.0)';
 }
 
@@ -125,7 +100,7 @@ function zoom_to(topic) {
  * and the zoom_to function
  */
 function zoom_in() {
-    document.getElementById('map-div').style.width = "200%";
+    document.getElementById('map-div').style.width = "300%";
     currentScale = 2;
     lastScale = currentScale;
     document.body.style.overflow = "auto";
