@@ -22,7 +22,6 @@
         <!-- Implement simple navbar, try to adapt some parts of the WAGO CI design -->
         <div class="navbar" id="navbar">
             <span onclick="openNav()" id="opennav" style="margin-right: -4px; padding-left: 3px; cursor: pointer;">&#9776;</span>
-            <span onclick="closeNav()" id="closenav" style="margin-right: 1px; padding-left: 10px; cursor: pointer;"><img src="img/close_icon.svg" alt="X" width="25px;"></span>
             <span><a href="https://www.wago.com/de/ausbildung-studium"><img src="img/wago_logo_jpg.jpg" alt="wago logo" style="width: 90px; height: auto; margin-bottom: -6px; padding-top: 10px;"></a></span>
             <span id="tda">Tag der Ausbildung</span>
         </div>
@@ -36,6 +35,9 @@
 
         <!-- Implement sidebar for additional information -->
         <div class="sidebar" id="sidebar">
+            <div  id="closenav">
+                <img src="img/close_icon.svg" alt="X" width="25px;" onclick="closeNav()">
+            </div>
             <h3 onclick="window.location.assign('https://my.mpskin.com/de/tour/4fy5j2fqtf')">360° Rundgang</h3>
             <h3>Kaufmännische Ausbildungsberufe</h3>
             <a href="javascript:void(0)" onclick="zoom_to('project')">Industriekaufleute (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
@@ -68,7 +70,10 @@
             <a href="javascript:void(0)" onclick="zoom_to('it_schulung')">Wirtschaftsinformatik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
             <!-- <a href="javascript:void(0)" onclick="zoom_to('ITSE')">ITSE Master (m/w/d)</a> -->
 
-        </div> 
+        </div>
+
+        <!-- Overlay für die Abdunklung -->
+        <div id="overlay"></div>
         
         
 

@@ -2,48 +2,41 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: auto;
-    background-color: #eff0f1;
+    background-color: #ffffff;
 }
 
-
 .navbar {
-    background-color: white;
+    background-color: ffffff;
     overflow: hidden;
     position: fixed;
-    /* position: sticky; */
     top: 0;
     width: 100%;
     z-index: 1000;
     height: 50px;
 }
 
-
 .content {
     margin-top: 50px; /* Fixed Navbar */
     transition: margin-left 0.3s, transform 0.3s ease;
-    background-color: whitesmoke;
+    background-color: ffffff;
     overflow: auto;
     width: 100%;
     height: auto;
 }
-
 
 #map-div {
     width: 100%;
     height: auto;
-    background-color: #eff0f1;
+    background-color: #ffffff;
     overflow: auto;
     padding-top: 10px;
-    /* touch-action: none; */
     transition: margin-right 0.3s, transform 0.3s ease;
 }
-
 
 #map-img {
     transition: margin-left 0.3s, transform 0.3s ease;
     width: 100%;
 }
-
 
 #tda {
     font-family: Aktiv Grotesk, Arial, OpenSans, sans-serif; 
@@ -53,57 +46,57 @@ body {
     padding-right: 10px;
 }
 
-
 #gender-info {
     padding-left: 5px;
+    font-size: smaller;
 }
-
 
 .sidebar {
     height: 100%;
     width: 0;
-    z-index: 1;
+    z-index: 1001; /* Über die Navbar */
     top: 0;
     left: 0;
-    background-color: #eff0f1;
+    background-color: #ffffff;
     overflow-x: hidden;
     overflow-y: auto;
-    transition: 0.3s;
-    margin-top: -10px;
-    margin-bottom: -10px;
+    transition: 0.5s; /* Übergangszeit für Animation */
+    position: fixed;
 }
 
+.sidebar.open {
+    width: 80%; /* Breite der Sidebar, wenn sie geöffnet ist */
+}
 
 .sidebar h3 {
     padding-left: 10px;
 }
 
-
 #threesixtydegree {
     padding-left: 0px 0px 0px 10px;
 }
 
-
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    margin: 20px;
+    padding: 0px 0px 20px 20px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
     color: black;
     display: block;
     transition: 0.3s;
+    border-bottom: lightgrey solid 1px;
 }
-
 
 .sidebar a:hover {
     color: #6EC800;
 }
 
-
-.sidebar .closebtn {
-    top: 0;
-    right: 25px;
+.sidebar #closenav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    position: relative;
 }
-
 
 @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
@@ -118,11 +111,9 @@ body {
     margin-left: 10px;
 }
 
-
 .navbar a {
     padding-left: 10px;
 }
-
 
 .zoom_ctrl {
     position: fixed;
@@ -131,15 +122,31 @@ body {
     font-size: 60px;
 }
 
-
 #ctrl_plus {
     color: #1f2837;
     padding-right: 12px;
     margin-bottom: 40px;
 }
 
-
 #ctrl_minus {
     color: #1f2837;
     padding-right: 20px;
+}
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Schwarzes, halbtransparentes Overlay */
+    z-index: 1000; /* Unter der Sidebar, aber über dem Rest */
+    display: none; /* Standardmäßig unsichtbar */
+    transition: opacity 0.5s ease; /* Weicher Übergang */
+}
+
+.sidebar.open + #overlay {
+    display: block; /* Zeige das Overlay, wenn die Sidebar geöffnet ist */
+    opacity: 1;
 }

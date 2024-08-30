@@ -16,7 +16,6 @@ var lastScale = 1; // make the difference to the last step visible
 
 
 $(document).ready(function() {
-    $('#closenav').hide();
     window.scrollTo(0,0);
     if(screen.width < 1000) {
         $('#ctrl_plus').hide();
@@ -31,14 +30,7 @@ $(document).ready(function() {
  *
  */
 function openNav() {
-    document.getElementById("sidebar").style.width = "80%";
-    document.getElementById("map-div").style.marginLeft = "100%";
-    window.scrollTo(0, 0);
-    $('#opennav').hide();
-    $('#closenav').show();
-    $('#map-img').hide();
-    $('#gender-info').hide();
-    document.body.style.overflow = "auto";
+    document.querySelector(".sidebar").classList.add("open");
 }
 
 
@@ -47,18 +39,7 @@ function openNav() {
  *
  */
 function closeNav() {
-    document.getElementById("sidebar").style.width = "0";
-    document.getElementById("map-div").style.marginLeft = "0";
-    $('#opennav').show();
-    $('#closenav').hide();
-    $('#map-img').show();
-    $('#gender-info').show();
-    window.scrollTo(0, 0);
-    if (currentScale > 1) {
-        document.body.style.overflow = "auto";
-    } else {
-        //document.body.style.overflow = "hidden";
-    }
+    document.querySelector(".sidebar").classList.remove("open");
 }
 
 
