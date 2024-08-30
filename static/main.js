@@ -31,7 +31,7 @@ $(document).ready(function() {
  *
  */
 function openNav() {
-    document.getElementById("sidebar").style.width = "100%";
+    document.getElementById("sidebar").style.width = "80%";
     document.getElementById("map-div").style.marginLeft = "100%";
     window.scrollTo(0, 0);
     $('#opennav').hide();
@@ -74,6 +74,7 @@ function zoom_to(topic) {
     rooms["office"] = [0, 60];
     rooms["project"] = [0, 180];
     rooms["it_schulung"] = [0, 300];
+    rooms["it_schulung_flur"] = [50, 300];
     rooms["workshop_2_3_4"] = [0, 400];
     rooms["e_ausbildung"] = [200, 400];
     rooms["meetings"] = [150, 150];
