@@ -1,152 +1,188 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: auto;
-    background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  max-height: 100%;
 }
 
-.navbar {
-    background-color: ffffff;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 50px;
+header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+  height: 70px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #eff0f1;
 }
 
-.content {
-    margin-top: 50px; /* Fixed Navbar */
-    transition: margin-left 0.3s, transform 0.3s ease;
-    background-color: ffffff;
-    overflow: auto;
-    width: 100%;
-    height: auto;
+#burger-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+}
+
+#nav-button {
+  font-size: 30px;
+}
+
+#headericon {
+  width: 150px;
+}
+
+#wago_logo {
+  fill: #6ec800;
+}
+
+header h1 {
+  color: #1f2837;
+  font-size: large;
+  padding: 10px;
+}
+
+#title {
+  text-align: right;
 }
 
 #map-div {
-    width: 100%;
-    height: auto;
-    background-color: #ffffff;
-    overflow: auto;
-    padding-top: 10px;
-    transition: margin-right 0.3s, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  padding-top: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: auto;
+  transition: margin-right 0.3s, transform 0.3s ease;
 }
 
 #map-img {
-    transition: margin-left 0.3s, transform 0.3s ease;
-    width: 100%;
-}
-
-#tda {
-    font-family: Aktiv Grotesk, Arial, OpenSans, sans-serif; 
-    float: right;
-    font-size: larger;
-    padding-top: 14px;
-    padding-right: 10px;
-}
-
-#gender-info {
-    padding-left: 5px;
-    font-size: smaller;
+  transition: margin-left 0.3s, transform 0.3s ease;
+  width: 95%;
 }
 
 .sidebar {
-    height: 100%;
-    width: 0;
-    z-index: 1001; /* Über die Navbar */
-    top: 0;
-    left: 0;
-    background-color: #ffffff;
-    overflow-x: hidden;
-    overflow-y: auto;
-    transition: 0.5s; /* Übergangszeit für Animation */
-    position: fixed;
+  height: 100%;
+  width: 0;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: 0.5s; /* Übergangszeit für Animation */
+  position: fixed;
 }
 
 .sidebar.open {
-    width: 80%; /* Breite der Sidebar, wenn sie geöffnet ist */
+  width: 80%; /* Breite der Sidebar, wenn sie geöffnet ist */
 }
 
 .sidebar h3 {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 #threesixtydegree {
-    padding-left: 0px 0px 0px 10px;
+  padding-left: 0px 0px 0px 10px;
 }
 
 .sidebar a {
-    margin: 20px;
-    padding: 0px 0px 20px 20px;
-    text-decoration: none;
-    font-size: 14px;
-    color: black;
-    display: block;
-    transition: 0.3s;
-    border-bottom: lightgrey solid 1px;
+  margin: 20px;
+  padding: 0px 0px 20px 20px;
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  border-bottom: lightgrey solid 1px;
 }
 
 .sidebar a:hover {
-    color: #6EC800;
+  color: #6ec800;
 }
 
 .sidebar #closenav {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  position: relative;
 }
 
 @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 16px;}
-}
-
-
-#opennav {
-    background-color: white;
-    font-size: 30px;
-    height: auto;
-    margin-left: 10px;
-}
-
-.navbar a {
-    padding-left: 10px;
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 16px;
+  }
 }
 
 .zoom_ctrl {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 60px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 60px;
 }
 
 #ctrl_plus {
-    color: #1f2837;
-    padding-right: 12px;
-    margin-bottom: 40px;
+  color: #1f2837;
+  padding-right: 12px;
+  margin-bottom: 40px;
 }
 
 #ctrl_minus {
-    color: #1f2837;
-    padding-right: 20px;
+  color: #1f2837;
+  padding-right: 20px;
 }
 
-
 #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Schwarzes, halbtransparentes Overlay */
-    z-index: 1000; /* Unter der Sidebar, aber über dem Rest */
-    display: none; /* Standardmäßig unsichtbar */
-    transition: opacity 0.5s ease; /* Weicher Übergang */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Schwarzes, halbtransparentes Overlay */
+  z-index: 20; /* Unter der Sidebar, aber über dem Rest */
+  display: none; /* Standardmäßig unsichtbar */
+  transition: opacity 0.5s ease; /* Weicher Übergang */
 }
 
 .sidebar.open + #overlay {
-    display: block; /* Zeige das Overlay, wenn die Sidebar geöffnet ist */
-    opacity: 1;
+  display: block; /* Zeige das Overlay, wenn die Sidebar geöffnet ist */
+  opacity: 1;
+}
+
+#gender-info {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  text-align: left;
+  background-color: white; /* Optional: Hintergrundfarbe */
+  z-index: 10; /* Stellt sicher, dass es über anderen Elementen angezeigt wird */
+  font-size: xx-small;
+  padding: 10px;
 }

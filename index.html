@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Ausbildungszentrum</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="static/style.css">
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
-            
-        <!-- Implement simple navbar, try to adapt some parts of the WAGO CI design -->
-        <div class="navbar" id="navbar">
-            <span onclick="openNav()" id="opennav" style="margin-right: -4px; padding-left: 3px; cursor: pointer;">&#9776;</span>
-            <span><a href="https://www.wago.com/de/ausbildung-studium"><img src="img/wago_logo_jpg.jpg" alt="wago logo" style="width: 90px; height: auto; margin-bottom: -6px; padding-top: 10px;"></a></span>
-            <span id="tda">Tag der Ausbildung</span>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>Ausbildungszentrum</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div id="burger-button">
+            <span id="nav-button" onclick="openNav()" >&#9776;</span>
         </div>
-        
+        <div id='headericon'>
+            <a href="https://www.wago.com/de/ausbildung-studium">
+                <svg id='wago_logo' version='1.1' id='Ebene_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'
+                    viewBox='0 0 1227.4 595.3' style='enable-background:new 0 0 1227.4 595.3;' xml:space='preserve'>
+                    <path class='st0' d='M748.4,287.6v19.7h27.6V325h-55.1v-55.1H839v-63H681.4c-13.1,0-23.6,10.6-23.6,23.6v133.9
+                    c0,13.1,10.6,23.6,23.6,23.6h133.9c13.1,0,23.6-10.6,23.6-23.6v-76.8L748.4,287.6L748.4,287.6z'/>
+                    <path class='st0' d='M1018.6,206.8H884.7c-13.1,0-23.6,10.6-23.6,23.6v133.9c0,13.1,10.6,23.6,23.6,23.6h133.9
+                    c13.1,0,23.6-10.6,23.6-23.6V230.4C1042.2,217.4,1031.6,206.8,1018.6,206.8 M979.2,325h-55.1v-55.1h55.1V325z'/>
+                    <path class='st0' d='M529.7,206.8L399.3,407.7h-22.6l29.3,45.2l96.7-45.2h-28.3l33.3-51.2h65V388h63V206.8L529.7,206.8L529.7,206.8
+                    z M528.2,325l44.5-68.5V325H528.2z'/>
+                    <polygon class='st0' points='256.1,388 310.8,303.8 310.8,388 386.5,388 517,187.1 537.4,187.1 508.1,141.9 411.3,187.1 
+                    441.1,187.1 373.8,290.7 373.8,206.8 298.7,206.8 244.2,290.6 244.2,206.8 181.2,206.8 181.2,388 	'/>
+                </svg>
+            </a>
+        </div>
+        <div id='title'>
+            <h1>Tag der Ausbildung 2024</h1>
+        </div>
+    </header>
+    <main> 
         <!-- main content: the map -->
-        <div class="content" id="map-div">
+        <div id="map-div">
             <img id="map-img" src="img/map.svg" alt="Map">
         </div>
         
-        <div id="gender-info"><br><br>*Gemeint ist m/w/d. Die gewählte Schreibweise erfolgt lediglich aus Darstellungsgründen.</div>
 
         <!-- Implement sidebar for additional information -->
         <div class="sidebar" id="sidebar">
@@ -40,48 +48,48 @@
             </div>
             <h3 onclick="window.location.assign('https://my.mpskin.com/de/tour/4fy5j2fqtf')">360° Rundgang</h3>
             <h3>Kaufmännische Ausbildungsberufe</h3>
-            <a href="javascript:void(0)" onclick="zoom_to('project')">Industriekaufleute (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('studenten_1')">Fachinformatiker Systemintegration (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('studenten_1')">Fachinformatiker Anwendungsentwicklung (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('studenten_2')">Mediengestalter Digital und Print (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('studenten_2')">Gestalter für immersive Medien (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
-            <br>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('project')">Industriekaufleute (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('studenten_1')">Fachinformatiker Systemintegration (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('studenten_1')">Fachinformatiker Anwendungsentwicklung (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('studenten_2')">Mediengestalter Digital und Print (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('studenten_2')">Gestalter für immersive Medien (m/w/d) <span style="color: #FFF696;">&#x25CF;</span></a>
             
             <h3>Technische Ausbildungsberufe</h3>
-            <a href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Industrieelektriker (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Mechatroniker (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Elektroniker für Geräte und Systeme (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Elektroniker für Betriebstechnik (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Elektroniker für Automatisierungstechnik (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('sonderprojekte')">Technischer Produktdesigner (m/w/d) <span style="color: #ED7D31;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('it_schulung_flur')">Fachlagerist (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('werkstatt')">Werkzeugmechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('werkstatt')">Industriemechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('werkstatt')">Kunststoff- und Kautschuktechnologie (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('werkstatt')">Maschinen- und Anlagenführer (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
-
-            <br>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Industrieelektriker (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Mechatroniker (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Elektroniker für Geräte und Systeme (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Elektroniker für Betriebstechnik (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('e_ausbildung')">Elektroniker für Automatisierungstechnik (m/w/d) <span style="color: #00A1E5;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('sonderprojekte')">Technischer Produktdesigner (m/w/d) <span style="color: #ED7D31;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('it_schulung_flur')">Fachlagerist (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('werkstatt')">Werkzeugmechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('werkstatt')">Industriemechaniker (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('werkstatt')">Kunststoff- und Kautschuktechnologie (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('werkstatt')">Maschinen- und Anlagenführer (m/w/d) <span style="color: #EB4B30;">&#x25CF;</span></a>
 
             <h3>Praxisintegriertes Studium</h3>
-            <a href="javascript:void(0)" onclick="zoom_to('it_schulung')">Wirtschaftsingenieurwesen (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('it_schulung')">Elektrotechnik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('it_schulung')">Maschinenbau (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('it_schulung')">Informatik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
-            <a href="javascript:void(0)" onclick="zoom_to('it_schulung')">Wirtschaftsinformatik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('it_schulung')">Wirtschaftsingenieurwesen (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('it_schulung')">Elektrotechnik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('it_schulung')">Maschinenbau (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('it_schulung')">Informatik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
+            <a class="job-name" href="javascript:void(0)" onclick="zoom_to('it_schulung')">Wirtschaftsinformatik (m/w/d) <span style="color: #85C695;">&#x25CF;</span></a>
             <!-- <a href="javascript:void(0)" onclick="zoom_to('ITSE')">ITSE Master (m/w/d)</a> -->
 
         </div>
 
+
         <!-- Overlay für die Abdunklung -->
         <div id="overlay"></div>
         
-        
-
+    </main>
+    <footer>
+        <div id="gender-info">*Gemeint ist m/w/d. Die gewählte Schreibweise erfolgt lediglich aus Darstellungsgründen.</div>
+        <div id="zoom-buttons">
         <!-- optional + and - for desktop environments only -->
-        <span class="zoom_ctrl" id="ctrl_plus" onclick="zoom_in()">+</span>
-        <br>
-        <span class="zoom_ctrl" id="ctrl_minus" onclick="zoom_out()">-</span>
-        
-        <script src="static/main.js"></script>    
-    </body>
+            <span class="zoom_ctrl" id="ctrl_plus" onclick="zoom_in()">+</span>
+            <span class="zoom_ctrl" id="ctrl_minus" onclick="zoom_out()">-</span>
+        </div>
+    </footer>
+  <script src="static/main.js"></script>    
+</body>
 </html>

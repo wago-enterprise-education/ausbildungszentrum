@@ -73,7 +73,6 @@ function zoom_to(topic) {
         behavior: "smooth",
     });
     document.body.style.overflow = "auto";
-    // document.getElementById("map-img").style.transform = 'scale(2.0)';
 }
 
 
@@ -83,7 +82,7 @@ function zoom_to(topic) {
  */
 function zoom_in() {
     document.getElementById('map-div').style.width = "300%";
-    currentScale = 2;
+    currentScale = 3;
     lastScale = currentScale;
     document.body.style.overflow = "auto";
 }
@@ -97,7 +96,6 @@ function zoom_out() {
     currentScale = 1;
     lastScale = currentScale;
     window.scrollTo(0, 0);
-    //document.body.style.overflow = "hidden";
 }
 
 
