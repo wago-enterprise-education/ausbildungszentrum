@@ -181,8 +181,10 @@ header h1 {
   left: 0;
   width: auto;
   text-align: left;
-  background-color: white; /* Optional: Hintergrundfarbe */
+  background-color: transparent; /* Optional: Hintergrundfarbe */
   z-index: 10; /* Stellt sicher, dass es über anderen Elementen angezeigt wird */
   font-size: xx-small;
   padding: 10px;
+  font-weight: bold; /* Fette Schrift */
+  font-family: 'Arial Black', sans-serif;
 }
