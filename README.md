@@ -1,4 +1,4 @@
-# ausbildungszentrum
+# Ausbildungszentrum
 Das WAGO Ausbildungszentrum
 
 Lageplan für den Tag der Ausbildung (TdA)
