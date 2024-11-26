@@ -52,10 +52,7 @@ function zoom_to(topic) {
     var rooms = {};
 
     // room coordinates for zoom  to 300 %
-    rooms["gps_left_top_office"] = [0, 0];
-
-
-    rooms["office"] = [0, 60]; //52.298724, 8.920668
+    rooms["office"] = [0, 60];
     rooms["project"] = [0, 180];
     rooms["it_schulung"] = [0, 300];
     rooms["it_schulung_flur"] = [50, 300];
@@ -199,32 +196,36 @@ pinchZoomElement.addEventListener('touchend', function (e) {
 
 // GPS PArt
 
-document.addEventListener("click", (event) => {
-    // Koordinaten relativ zum sichtbaren Bereich des Browsers
-    const x = event.clientX;
-    const y = event.clientY;
 
-    // Koordinaten ausgeben
-    console.log(`X: ${x}px, Y: ${y}px`);
+// funkction that converts gps coordinates in px coordinates
+function convert_gps_to_px(lat, lon) {
+    // GPS coordinates of the map
+    const gpsCoords = {
+        "gps_left_top_office": [52.29872332103037, 8.92066718559268],
+        "gps_left_bottom_workshop_2_3_4": [52.29840902385728, 8.920667733399881],
+        "gps_right_top_eingang": [52.29885741458489, 8.921552314563716],
+        "gps_right_bottom_werkstatt": [52.298129859657074, 8.921555615716422]
+    };
 
-    // Optional: Koordinaten auf der Seite anzeigen
-    const coordElement = document.createElement("div");
-    coordElement.style.position = "absolute";
-    coordElement.style.left = `${x}px`;
-    coordElement.style.top = `${y}px`;
-    coordElement.style.backgroundColor = "red";
-    coordElement.style.color = "white";
-    coordElement.style.padding = "2px 5px";
-    coordElement.style.borderRadius = "5px";
-    coordElement.style.fontSize = "12px";
-    coordElement.textContent = `(${x}px, ${y}px)`;
-    document.body.appendChild(coordElement);
+    const pxCoords = {
+        "gps_left_top_office": [18, 199],
+        "gps_left_bottom_workshop_2_3_4": [18, 387],
+        "gps_right_top_eingang": [359, 116],
+        "gps_right_bottom_werkstatt": [336, 546]
+    };
 
-    // Entfernt das Div nach 2 Sekunden
-    setTimeout(() => coordElement.remove(), 2000);
-  });
+    // Calculate the pixel coordinates based on the GPS coordinates
+    const latRange = gpsCoords.gps_left_top_office[0] - gpsCoords.gps_left_bottom_workshop_2_3_4[0];
+    const lonRange = gpsCoords.gps_right_top_eingang[1] - gpsCoords.gps_left_top_office[1];
 
+    const latRatio = (lat - gpsCoords.gps_left_bottom_workshop_2_3_4[0]) / latRange;
+    const lonRatio = (lon - gpsCoords.gps_left_top_office[1]) / lonRange;
 
+    const pxX = pxCoords.gps_left_top_office[0] + lonRatio * (pxCoords.gps_right_top_eingang[0] - pxCoords.gps_left_top_office[0]);
+    const pxY = pxCoords.gps_left_bottom_workshop_2_3_4[1] - latRatio * (pxCoords.gps_left_bottom_workshop_2_3_4[1] - pxCoords.gps_left_top_office[1]);
+
+    return [pxX, pxY];
+}
 
 window.addEventListener('load', () => {
     if (navigator.geolocation) {
@@ -238,6 +239,8 @@ function showPosition(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 
+    const [pxX, pxY] = convert_gps_to_px(latitude, longitude);
+
     // Add marker to the map
     const marker = document.createElement('div');
     marker.id = 'gps-marker';
@@ -246,8 +249,8 @@ function showPosition(position) {
     marker.style.height = '10px';
     marker.style.backgroundColor = 'red';
     marker.style.borderRadius = '50%';
-    marker.style.top = `${latitude}px`; // Adjust these values to match your map's coordinate system
-    marker.style.left = `${longitude}px`; // Adjust these values to match your map's coordinate system
+    marker.style.top = `${pxY}px`;
+    marker.style.left = `${pxX}px`;
     document.getElementById('map-div').appendChild(marker);
 }
 
