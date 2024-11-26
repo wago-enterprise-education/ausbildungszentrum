@@ -51,8 +51,11 @@ function zoom_to(topic) {
 
     var rooms = {};
 
-    // room coordinates for zoom 300 %
-    rooms["office"] = [0, 60];
+    // room coordinates for zoom  to 300 %
+    rooms["gps_left_top_office"] = [0, 0];
+
+
+    rooms["office"] = [0, 60]; //52.298724, 8.920668
     rooms["project"] = [0, 180];
     rooms["it_schulung"] = [0, 300];
     rooms["it_schulung_flur"] = [50, 300];
@@ -189,3 +192,78 @@ pinchZoomElement.addEventListener('touchend', function (e) {
         scaling = false;
     }
 });
+
+
+
+
+
+// GPS PArt
+
+document.addEventListener("click", (event) => {
+    // Koordinaten relativ zum sichtbaren Bereich des Browsers
+    const x = event.clientX;
+    const y = event.clientY;
+
+    // Koordinaten ausgeben
+    console.log(`X: ${x}px, Y: ${y}px`);
+
+    // Optional: Koordinaten auf der Seite anzeigen
+    const coordElement = document.createElement("div");
+    coordElement.style.position = "absolute";
+    coordElement.style.left = `${x}px`;
+    coordElement.style.top = `${y}px`;
+    coordElement.style.backgroundColor = "red";
+    coordElement.style.color = "white";
+    coordElement.style.padding = "2px 5px";
+    coordElement.style.borderRadius = "5px";
+    coordElement.style.fontSize = "12px";
+    coordElement.textContent = `(${x}px, ${y}px)`;
+    document.body.appendChild(coordElement);
+
+    // Entfernt das Div nach 2 Sekunden
+    setTimeout(() => coordElement.remove(), 2000);
+  });
+
+
+
+window.addEventListener('load', () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition, showError, { timeout: 100 });
+    } else {
+        document.getElementById('location').innerText = "Geolocation is not supported by this browser.";
+    }
+});
+
+function showPosition(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    // Add marker to the map
+    const marker = document.createElement('div');
+    marker.id = 'gps-marker';
+    marker.style.position = 'absolute';
+    marker.style.width = '10px';
+    marker.style.height = '10px';
+    marker.style.backgroundColor = 'red';
+    marker.style.borderRadius = '50%';
+    marker.style.top = `${latitude}px`; // Adjust these values to match your map's coordinate system
+    marker.style.left = `${longitude}px`; // Adjust these values to match your map's coordinate system
+    document.getElementById('map-div').appendChild(marker);
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            document.getElementById('location').innerText = "User denied the request for Geolocation.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            document.getElementById('location').innerText = "Location information is unavailable.";
+            break;
+        case error.TIMEOUT:
+            document.getElementById('location').innerText = "The request to get user location timed out.";
+            break;
+        case error.UNKNOWN_ERROR:
+            document.getElementById('location').innerText = "An unknown error occurred.";
+            break;
+    }
+}

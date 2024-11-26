@@ -38,6 +38,7 @@
         <!-- main content: the map -->
         <div id="map-div">
             <img id="map-img" src="img/map.svg" alt="Map">
+            <div id="location"></div> <!-- Add this line -->
         </div>
         
 
@@ -91,5 +92,14 @@
         </div>
     </footer>
   <script src="static/main.js"></script>    
+  <style>
+    #gps-marker {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 50%;
+    }
+</style>
 </body>
 </html>
