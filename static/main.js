@@ -215,14 +215,17 @@ function convert_gps_to_px(lat, lon) {
     };
 
     // Calculate the pixel coordinates based on the GPS coordinates
-    const latRange = gpsCoords.gps_left_top_office[0] - gpsCoords.gps_left_bottom_workshop_2_3_4[0];
-    const lonRange = gpsCoords.gps_right_top_eingang[1] - gpsCoords.gps_left_top_office[1];
+    var latRange = gpsCoords.gps_left_top_office[0] - gpsCoords.gps_left_bottom_workshop_2_3_4[0];
+    var lonRange = gpsCoords.gps_right_top_eingang[1] - gpsCoords.gps_left_top_office[1];
 
-    const latRatio = (lat - gpsCoords.gps_left_bottom_workshop_2_3_4[0]) / latRange;
-    const lonRatio = (lon - gpsCoords.gps_left_top_office[1]) / lonRange;
+    var latRatio = (lat - gpsCoords.gps_left_bottom_workshop_2_3_4[0]) / latRange;
+    var lonRatio = (lon - gpsCoords.gps_left_top_office[1]) / lonRange;
 
-    const pxX = pxCoords.gps_left_top_office[0] + lonRatio * (pxCoords.gps_right_top_eingang[0] - pxCoords.gps_left_top_office[0]);
-    const pxY = pxCoords.gps_left_bottom_workshop_2_3_4[1] - latRatio * (pxCoords.gps_left_bottom_workshop_2_3_4[1] - pxCoords.gps_left_top_office[1]);
+    var pxX = pxCoords.gps_left_top_office[0] + lonRatio * (pxCoords.gps_right_top_eingang[0] - pxCoords.gps_left_top_office[0]);
+    var pxY = pxCoords.gps_left_bottom_workshop_2_3_4[1] - latRatio * (pxCoords.gps_left_bottom_workshop_2_3_4[1] - pxCoords.gps_left_top_office[1]);
+
+    pxX = Math.round(pxX);
+    pxY = Math.round(pxY);
 
     return [pxX, pxY];
 }
@@ -236,10 +239,10 @@ window.addEventListener('load', () => {
 });
 
 function showPosition(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
-    const [pxX, pxY] = convert_gps_to_px(latitude, longitude);
+    [pxX, pxY] = convert_gps_to_px(latitude, longitude);
 
     // Add marker to the map
     const marker = document.createElement('div');
