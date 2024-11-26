@@ -232,7 +232,7 @@ function convert_gps_to_px(lat, lon) {
 
 window.addEventListener('load', () => {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition, showError, { timeout: 100 });
+        navigator.geolocation.watchPosition(showPosition, showError, { timeout: 100, enableHighAccuracy: true });
     } else {
         document.getElementById('location').innerText = "Geolocation is not supported by this browser.";
     }
@@ -244,17 +244,22 @@ function showPosition(position) {
 
     [pxX, pxY] = convert_gps_to_px(latitude, longitude);
 
-    // Add marker to the map
-    const marker = document.createElement('div');
-    marker.id = 'gps-marker';
-    marker.style.position = 'absolute';
-    marker.style.width = '10px';
-    marker.style.height = '10px';
-    marker.style.backgroundColor = 'red';
-    marker.style.borderRadius = '50%';
+    let marker = document.getElementById('gps-marker');
+    if (!marker) {
+        // Create marker if it doesn't exist
+        marker = document.createElement('div');
+        marker.id = 'gps-marker';
+        marker.style.position = 'absolute';
+        marker.style.width = '10px';
+        marker.style.height = '10px';
+        marker.style.backgroundColor = 'red';
+        marker.style.borderRadius = '50%';
+        document.getElementById('map-div').appendChild(marker);
+    }
+
+    // Update marker position
     marker.style.top = `${pxY}px`;
     marker.style.left = `${pxX}px`;
-    document.getElementById('map-div').appendChild(marker);
 }
 
 function showError(error) {
