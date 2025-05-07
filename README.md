@@ -11,6 +11,7 @@ Lageplan für den Tag der Ausbildung (TdA)
     - [ ] Zusätzliche Attraktionen (z. B. Gewinnspiel) ergänzen
 - [ ] Anpassen der Koordinaten für die jeweiligen Berufsgruppen
 - [ ] Farbige Schilder im Gebäude zur besseren Orientierung aufstellen (in den Farben der unterschiedlichen Bereiche)
+- [ ] responsive design
 
 *Optional*
 - [ ] Verbesserung des Pinch-Zooms
