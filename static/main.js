@@ -63,7 +63,8 @@ function zoom_to(topic) {
     rooms["studenten_2"] = [550, 0];
     rooms["labore"] = [450, 150];
     rooms["sonderprojekte"] = [650, 150];
-    rooms["werkstatt"] = [500, 500];
+    rooms["werkstatt_oben"] = [500, 400];
+    rooms["werkstatt_mitte"] = [500, 600];
 
     closeNav();
     zoom_in();
